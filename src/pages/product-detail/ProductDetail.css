@@ -1,0 +1,80 @@
+.contenedor-info-ferrariSf90 {
+    display: flex;
+    background-color: #287375;
+    margin: 20px 0;
+
+    .ferrarisf90-image {
+        padding: 20px 20px;
+        position: relative;
+        
+        img {
+            width: 100%;
+        }
+    }
+
+    .informacion-ferrarisf90 {
+
+        p {
+            padding: 5px 20px 20px;
+            text-align: center;
+            color: white;
+        }
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        padding: 0 50px;
+
+        button {
+            padding: .5rem 1rem;
+            background-color: white;
+            border-radius: 4px;
+            color: #287375;
+            cursor: pointer;
+            transition: all .3s;
+            border: 1px solid white;
+            margin-bottom: 1rem;
+
+            &:hover {
+                background-color: #287375;
+                color: white;
+            }
+        }
+
+        .btn-pantalla-principal {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (width < 768px) {
+    .contenedor-info-ferrariSf90 {
+        margin: 20px 5px;
+        display: flex;
+        flex-direction: column;
+
+        .ferrarisf90-image {
+            position: relative;
+            padding: 0px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .informacion-ferrarisf90 {
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            p {
+                padding: 5px 20px 20px;
+                text-align: center;
+                color: white;
+            }
+        }
+    }
+
+}

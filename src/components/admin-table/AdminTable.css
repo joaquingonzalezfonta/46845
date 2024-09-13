@@ -1,0 +1,15 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.input-error {
+    color: red;
+    font-size: .5rem;
+}
+
+.contenedor-tabla {
+    overflow-x: auto;
+    margin: 20px 10px;
+}
+

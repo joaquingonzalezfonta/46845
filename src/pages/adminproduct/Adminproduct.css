@@ -1,0 +1,14 @@
+
+.admin-container {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+
+    .formm-container {
+        flex: 0 0 360px;
+    }
+
+    .tale-container {
+        flex: 1;
+    }
+}

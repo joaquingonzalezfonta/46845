@@ -1,0 +1,36 @@
+form {
+    width: min(450px, 100%);
+    margin: 30px auto;
+    padding: 1rem;
+    background-color: white;
+}
+
+input, textarea, select {
+        padding: 8px 16px;
+        border: 1px solid #287375;
+        outline: none;
+        font-size: 16px;
+        background-color: white;
+
+        &:focus {
+            background-color: white;
+        }
+
+        &::placeholder {
+            color: #287375;
+        }
+    }
+    
+    input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #287375;
+}
+
+input[type="range"], input[type="file"] {
+        accent-color: #287375;
+    }
+
+input[type="file"] {
+    background-color: #287375;
+}

@@ -1,0 +1,562 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-principal {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+  margin-bottom: none;
+  height: 69px;
+
+  .input-burger {
+      display: none;
+  }
+
+  .burger-menu {
+      color: white;
+      display: flex;
+      align-items: center;
+      font-size: 1.25rem;
+      display: none;
+  }
+
+  .main-header-left {
+      display: flex;
+  }
+
+  .main-logo {
+      place-content: center;
+
+      .main-logo-img {
+          height: 44px;
+          object-fit: cover;
+          margin-top: 10px;
+      }
+  }
+
+  .user-info {
+      color: white;
+      place-content: center;
+      
+      .user-name {
+          margin-right: .5rem;
+          cursor: pointer;
+      }
+
+      .cart-icon {
+          font-size: 1.25rem;
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+              content: attr(data-count);
+              width: 16px;
+              height: 16px;
+              background-color: #287375;
+              position: absolute;
+              top: -10px;
+              right: -8px;
+              border-radius: 50%;
+              font-size: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 300;
+          }
+      }
+  }
+}
+
+.header-principal .nav-list {
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.header-principal .nav-item {
+  display: flex;
+}
+
+.header-principal .nav-link {
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  align-items: center;
+  transition: background-color 0.3s; 
+}
+
+.nav-principal {
+  align-items: center;
+}
+
+.header-principal .nav-link:hover {
+  background-color: #287375;
+}
+
+
+.main-carousel {
+  height: 500px;
+
+  .carousel-item img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+  }
+}
+
+.main-container {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 10px auto;
+}
+
+.product-section {
+  padding: 1rem;
+}
+
+.form-container-center {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  >div {
+    flex: 1;
+  }
+  
+  .form-subcontainer {
+      display: block;
+      justify-content: center;
+      width: 600px;
+      background-color: white;
+      color: white;
+      border: 3px solid #287375;
+      box-shadow: 0 0 15px 0 #287375;
+
+
+
+      .form-title {
+          padding: 1rem;
+          text-align: center;
+          background-color: #287375;
+      }
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (width < 768px) {
+  .form-container {
+      flex-direction: column;
+      
+      .form-subcontainer {
+          max-width: 100%;
+
+      }
+
+      .contact-map {
+          flex-basis: 400px;
+      }
+  }
+}
+
+.section-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 300;
+}
+.subtitle-pag-principal {
+  font-size: 16px;
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  text-align: center;
+  display: block;
+  color: #777;
+  font-weight: 300;
+}
+
+.product-card-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  height: 300px;
+  width: 280px;
+  border: 1px solid transparent;
+  transition: margin 0.3s, border 0.3s, box-shadow 0.3s;
+
+  &:hover {
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px #287375;
+      margin-bottom: 0;
+  }
+}
+
+.product-image {
+  position: relative;
+  height: 150px;
+
+  img {
+      width: 100%;
+  }
+
+  .enlace-vista-rapida {
+      cursor: pointer;
+      text-decoration: none;
+  }
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ebebeb;
+  
+  .product-category {
+      color: #a4a4a4;
+  }
+}
+
+.product-name {
+  display: flex;
+  font-size: 1rem;
+  padding: 10px 0;
+  text-transform: capitalize;
+  text-align: center;
+  justify-content: center;
+}
+
+a {
+  color: #287375;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &:hover {
+      text-decoration: underline
+  }
+}
+
+.product-price {
+  justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  line-height: 24px;
+
+  .product-normal-price {
+      color: #287375;
+      font-weight: 500;
+      font-size: 18px;
+  }
+
+  button {
+      font-size: 14px;
+      line-height: 1;
+      text-align: center;
+      border-radius: 3px;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      background-color: #287375;
+      border: 1px solid #287375;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+  
+      &:hover {
+          background-color: white;
+          border: 1px solid #287375;
+          color: #287375;
+      }
+  }
+}
+
+.link-icons {
+  color: #ddd;
+
+  &:hover {
+      color: cadetblue;
+  }
+}
+
+.main-footer {
+  margin-top: 0px;
+}
+
+
+.footer-logo {
+  place-content: center;
+
+  .main-logo-img {
+      height: 100px;
+      object-fit: cover;
+  }
+}
+
+.footer-articles {
+  flex: 1 1 240px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  align-items: center;
+  background-color: #3a3a3a;
+}
+
+/* ========= section Service Feature =========== */
+.service-features {
+  display: flex;
+  margin-bottom: -10px;
+
+  .feature {
+      flex: 1 1 240px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      align-items: center;
+      background-color: cadetblue;
+
+      &:nth-child(even) {
+          background-color: #287375;
+      }
+
+      .feature-image {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+      }
+
+      .feature-description {
+          text-align: center;
+          font-size: .75rem;
+          margin-top: 1rem;
+      }
+  }
+}
+
+
+
+
+/* ========= section Service Feature End =========== */
+
+form {
+  color: #222;
+  background-color: white;
+  padding: 1rem;
+
+  .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      input-label {
+          font-size: .675rem;
+          margin-bottom: .25rem;
+          text-align: left;
+      }
+
+      input, textaea, select {
+          padding: .5rem;
+          border-radius: 4px;
+          color: #222;
+          outline: none;
+          border: 2px solid #287375;
+      }
+
+      button {
+          padding: .5rem 1rem;
+          background-color: #287375;
+          border-radius: 4px;
+          color: white;
+          cursor: pointer;
+          transition: all .3s;
+          border: 1px solid #287375;
+
+          &.btn-success {
+            background-color: white;
+            border: 1px solid #287375;
+            color: #287375;
+
+            &:hover {
+              background-color: #287375;
+              color: white;
+              border: 2px solid #287375;
+            } 
+          }
+
+          
+
+          &:disabled {
+            background-color: #333;
+            color: #666;
+            pointer-events: none;
+          }
+
+          &:hover {
+              background-color: white;
+              color: #222;
+          }
+      }
+  }
+}
+
+@media screen and (width < 768px) {
+  .service-features {
+      flex-direction: column;
+
+      article.feature {
+          flex-basis: 300px;
+      }
+  }
+
+  .main-footer {
+      flex-direction: column;
+      background-color: #222;
+
+      .list-icons {
+          flex-basis: 300px;
+      }
+  }
+}
+
+
+@media screen and (width <=620px) {
+  .header-principal {
+      box-shadow: 0 2px 4px #222;
+      margin: none;
+
+      .burger-menu {
+          display: flex;
+      }
+
+      .burger-line {
+          width: 16px;
+          height: 2px;
+          background-color: white;
+          position: relative;
+      }
+
+      .burger-line::before,
+      .burger-line::after {
+          content: "";
+          width: 16px;
+          height: 2px;
+          background-color: white;
+          position: absolute;
+          top: -5px;
+          transition: transform .3s ease-in-out;
+      }
+
+      .burger-line::after {
+          top: 5px;
+      }
+      
+      .input-burger:checked~.burger-menu .burger-line {
+          background-color: transparent;
+      }
+      
+      .input-burger:checked~.burger-menu .burger-line::before {
+          transform: rotate(-45deg);
+          top: 0;
+      }
+      
+      .input-burger:checked~.burger-menu .burger-line::after {
+          transform: rotate(45deg);
+          top: 0;
+      }
+      
+      .nav-principal {
+          position: fixed;
+          left: -300px;
+          top: 69px;
+          width: 300px;
+          height: 100vh;
+          z-index: 1;
+          background-color: cadetblue;
+          transition: all .3s ease-in-out;
+          
+          
+          
+          .nav-list {
+              flex-direction: column;
+              padding-left: 0px;
+              
+              .nav-item {
+                  display: block;
+                  margin: 0;
+                  
+                  
+                  &:not(:last-child) {
+                      border-bottom: 1px solid #287375;
+                  }
+              }
+          }
+      }
+      
+      .input-burger:checked~.main-header-left .nav-principal {
+              left: 0;
+          }
+          
+      
+      .user-info {
+          .user-name {
+              display: none;
+          }
+      }
+  }
+}
+
+

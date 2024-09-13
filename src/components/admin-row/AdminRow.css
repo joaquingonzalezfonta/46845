@@ -1,0 +1,74 @@
+.car-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th {
+        padding: .75rem .5rem;
+        background-color: cadetblue;
+        color: white;
+    }
+    
+    td, th {
+        border: 2px solid #287375;
+        text-align: center;
+    }
+
+    tbody {
+
+        tr:nth-child(even) {
+            background-color: rgb(153, 202, 198);
+        }
+
+        .car-image {
+            position: relative;
+            height: 120px;
+            width: 120px;
+
+            img {
+                width: 100%;
+                padding: 8px;
+            }
+
+        }
+
+        .car-name {
+            padding: 0 10px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #287375;
+            text-align: center;
+        }
+
+        .car-description {
+            font-style: italic;
+            color: #212121;
+            padding: 0 15px;
+        }
+
+        .car-price {
+            padding: 0 15px;
+        }
+
+        .car-link {
+            text-align: center;
+            
+            button {
+                padding: 5px;
+                background-color: #287375;
+                border-radius: 3px;
+                cursor: pointer;
+                color: white;
+                margin: 0 2px;
+                border: 1px solid #287375;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: white;
+                    color: #287375;
+                    
+                }
+            }
+        }
+    }
+}
