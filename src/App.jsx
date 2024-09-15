@@ -12,42 +12,48 @@ import OrderDialog from "./components/order-dialog/OrderDialog"
 
 
 export default function App() {
-  
+
   return (
     <>
 
-      <OrderDialog />
 
       <Header />
 
-      <main className="main-container">  
+      <OrderDialog />
+
+      
+
+      <main className="main-container">
+        
+        
+
         <Routes>
 
-          <Route path="/" element={ <Home /> } />
+          <Route path="/" element={<Home />} />
 
-          <Route path="/product-detail/:id" element={ <ProductDetail /> } />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
 
-          <Route path="/register" element={ <Register /> } />
+          <Route path="/register" element={<Register />} />
 
-          <Route path="/contact" element={ <Contact /> } />
+          <Route path="/contact" element={<Contact />} />
 
-          <Route path="/aboutus" element={ <Aboutus /> } />
+          <Route path="/aboutus" element={<Aboutus />} />
 
-          <Route path="/adminproduct" element={ <Adminproduct /> } />
+          <Route path="/adminproduct" element={<Adminproduct />} />
 
-          <Route path="/login" element={ <Login /> } />
+          <Route path="/login" element={<Login />} />
 
-          
+
 
         </Routes>
       </main>
-      
+
       <Footer />
 
-    
-    
-    
-    
+
+
+
+
     </>
   )
 }

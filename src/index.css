@@ -114,24 +114,29 @@ body {
 
 
 .main-carousel {
-  height: 500px;
+  height: 700px;
+  margin-top: 0px;
 
   .carousel-item img {
       width: 100%;
-      height: 500px;
+      height: 700px;
       object-fit: cover;
   }
 }
 
-.main-container {
+  .main-container {
   flex-grow: 1;
   width: 100%;
-  max-width: 1200px;
-  margin: 10px auto;
-}
+} 
 
 .product-section {
   padding: 1rem;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.form-section {
+  padding: 0 50px;
 }
 
 .form-container-center {
