@@ -29,6 +29,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            justify-content: center;
         }
 
         .modal-body {
@@ -44,8 +45,39 @@
                         border-bottom: 1px solid #DDDDDDAA;
                     }
                 }
+
+                .order-total{
+                    padding: 5px;
+                    text-align: right;
+                    border-top: 1px solid cadetblue;
+                    
+                }
+            }
+
+        }
+
+        .modal-footer {
+            /* justify-content: center; */
+
+            .btn-order {
+            padding: 3px;
+            background-color: cadetblue;
+            color: white;
+            border: 1px solid cadetblue;
+            border-radius: 5px;
+            margin-left: 5px;
+            transition: 0.3s;
+            
+
+            &:hover {
+                background-color: white;
+                border: 1px solid cadetblue;
+                color: cadetblue;
             }
         }
+        }
+
+        
     }
 }
 

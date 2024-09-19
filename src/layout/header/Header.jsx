@@ -6,7 +6,7 @@ import { useOrder } from "../../context/OrderContext";
 
 export default function Header() {
 
-    const { setToggleModal } = useOrder()
+    const { setToggleModal, count } = useOrder()
 
     return (
         <header className="header-principal">
@@ -49,12 +49,29 @@ export default function Header() {
                                 ADMIN PRODUCT
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink to='/Adminuser' className="nav-link">
+                                ADMIN USER
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
             </div>
             <div className="user-info">
-                <span className="user-name">Joaquin</span>
-                <FontAwesomeIcon className="cart-icon" data-count="0" icon={faCartShopping} onClick={() => setToggleModal(estado => !estado)}/>
+
+                <div className="user-name">
+                    Joaquin
+                </div>
+
+                <div className="carrito">
+                    <div className="order-count">
+                        {count}
+                    </div>
+
+                    <FontAwesomeIcon data-count="2" icon={faCartShopping} className="cart-icon" onClick={() => setToggleModal(estado => !estado)} />
+                                    
+                </div>
+
             </div>
         </header>
     )
