@@ -17,13 +17,13 @@ export default function Home() {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval={10000}>
-            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/QZOZR2ONURFUXEU74I64HZEE7E.jpg" className="d-block w-100" alt="..." />
+          <div className="carousel-item active" data-bs-interval={3000}>
+            <img src="https://cdn.whichcar.com.au/assets/w_4096/1d031226/aston-martin-db12-volante-1.jpg" className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval={2000}>
-            <img src="https://media.gq.com.mx/photos/5d6ec5c43d0c810008e7008c/4:3/w_2248,h_1686,c_limit/bugatti.jpg" className="d-block w-100" alt="..." />
+          <div className="carousel-item" data-bs-interval={3000}>
+            <img src="https://motor.elpais.com/wp-content/uploads/2022/08/Audi-R8_Coupe-2019-1600-01.jpg" className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item" data-bs-interval={3000}>
             <img src="https://www.clarin.com/2024/05/03/BBRlsddsh_2000x1500__1.jpg" className="d-block w-100" alt="..." />
           </div>
         </div>
@@ -48,10 +48,10 @@ export default function Home() {
       </div>
 
       <section className="product-section">
-        <h1 className="section-title"> Vehículos desportivos disponibles </h1>
+        <h1 className="section-title"> IMPORCAR </h1>
         <span className="section-subtitle">
           {" "}
-          (La innovación sin ejecución es alucinación){" "}
+          vehículos deprtivos disponibles{" "}
         </span>
         <span className="subtitle-pag-principal">
           {" "}

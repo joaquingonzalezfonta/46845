@@ -19,6 +19,14 @@
         font-weight: 500;
     }
 
+    .item-price {
+        font-size: 12px;
+    }
+
+    .item-subtotal {
+        font-size: 12px;
+    }
+
     .item-input-dialog {
         width: 8ch;
         height: 34px;
@@ -39,5 +47,13 @@
             border: 1px solid cadetblue;
             color: cadetblue;
         }
+    }
+}
+
+@media screen and (width < 520px) {
+
+    .order-item {
+        display: flex;
+        flex-wrap: wrap;
     }
 }

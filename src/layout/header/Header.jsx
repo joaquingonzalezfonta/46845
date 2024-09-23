@@ -59,9 +59,12 @@ export default function Header() {
             </div>
             <div className="user-info">
 
-                <div className="user-name">
-                    Joaquin
-                </div>
+                <a className="user-name" href="/Adminuser">
+                    <div>
+                        Joaquin
+                    </div>
+                </a>
+                    
 
                 <div className="carrito">
                     <div className="order-count">

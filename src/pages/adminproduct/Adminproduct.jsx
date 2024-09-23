@@ -9,14 +9,18 @@ import Swal from 'sweetalert2';
 const URL = "https://66cf3a98901aab24842171a2.mockapi.io/api/v1";
 
 export default function Adminproduct() {
-    const [products, setProducts] = useState([])
 
+    const [products, setProducts] = useState([])
 
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm()
 
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => { getProducts(); }, [])
+
+
+
+
 
 
 
@@ -35,6 +39,13 @@ export default function Adminproduct() {
         }
     }, [selectedProduct, setValue, reset])
 
+
+
+
+
+
+
+
     async function getProducts() {
         try {
             // Carga de productos
@@ -48,6 +59,19 @@ export default function Adminproduct() {
             console.log(error)
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function deleteProduct(identificador) {
 
@@ -77,6 +101,24 @@ export default function Adminproduct() {
             }
         })
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,6 +156,17 @@ export default function Adminproduct() {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
     // EDITAR PRODUCTOS
     // Crear un funcion para obtener los datos del producto a editar
     function handleEditProduct(producto) {
@@ -132,12 +185,23 @@ export default function Adminproduct() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <section className='form-section'>
-            <div className="admin-container">
                 <div className="admin-container">
                     <div className="form-container-center">
-                            <div className="form-subcontainer">
+                        <div className="form-subcontainer">
                             <h1 className='form-title'> Admin Prodcut </h1>
                             <form onSubmit={handleSubmit(onProductSubmit)}>
                                 <div className="input-group">
@@ -193,9 +257,10 @@ export default function Adminproduct() {
                                 <div className="input-group">
                                     <label htmlFor="image"> Imagen </label>
                                     <input type="url" {...register("image", { required: true })} />
+                                
+                                    {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
                                 </div>
 
-                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
 
                                 <div className="input-group">
                                     <button className={`${selectedProduct && 'btn-success'}`} type='submit' disabled={!isValid}>
@@ -207,15 +272,14 @@ export default function Adminproduct() {
                                 </div>
                             </form>
                         </div>
-                    </div>
                     
-                </div>
+                    </div>
 
-                <div className="contenedor-tabla">
-                    <AdminTable products={products} deleteProduct={deleteProduct} handleEditProduct={handleEditProduct} />
+                    <div className="contenedor-tabla">
+                        <AdminTable products={products} deleteProduct={deleteProduct} handleEditProduct={handleEditProduct} />
 
+                    </div>
                 </div>
-            </div>
 
 
 

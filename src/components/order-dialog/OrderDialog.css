@@ -14,11 +14,13 @@
     animation: showIn 1s ease-in-out forwards;
 
     .modal-content {
+        max-height: 500px;
         background-color: white;
+        border: 2px solid cadetblue;
         padding: 1rem;
         color: black;
         border-radius: .25rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        box-shadow: 0 0 10px #287275;
         width: calc(100% - 2rem);
         max-width: 600px;
         opacity: 0;
@@ -31,25 +33,32 @@
             margin-bottom: 1rem;
             justify-content: center;
         }
-
+        
         .modal-body {
             margin-bottom: 1rem;
+            overflow-y: scroll;
 
             .order-list {
+                display: flex;
+                flex-direction: column;
                 list-style: none;
+                
 
+                
+                
                 .order-item {
                     padding: .25rem 1rem;
-
+                    
                     &:not(:last-child) {
-                        border-bottom: 1px solid #DDDDDDAA;
+                        border-bottom: 1px solid rgba(95, 158, 160, 0.338);
                     }
                 }
-
+                
                 .order-total{
                     padding: 5px;
                     text-align: right;
-                    border-top: 1px solid cadetblue;
+                    background-color: rgba(95, 158, 160, 0.338);
+                    /* margin: 5px 0 0 395px; */
                     
                 }
             }
@@ -57,7 +66,7 @@
         }
 
         .modal-footer {
-            /* justify-content: center; */
+            
 
             .btn-order {
             padding: 3px;
@@ -92,3 +101,22 @@
         opacity: 1;
     }
 }
+
+@media screen and (width < 670px) {
+
+    .modal-content {
+        
+        .modal-body {
+            justify-content: center;
+        }
+
+        .modal-footer {
+
+            justify-content: center;
+        }
+    }
+
+    
+    
+}
+
