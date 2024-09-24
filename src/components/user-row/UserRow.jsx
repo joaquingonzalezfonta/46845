@@ -12,7 +12,7 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
       <td className="car-name">
         {user.name}
       </td>
-      <td className="car-description">
+      <td className="car-price">
         {user.mail}
       </td>
       <td className="car-price">
@@ -25,13 +25,13 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
         {user.birthdate}
       </td>
       <td className="car.createdAt">
-        {user.province}
-      </td>
-      <td className="car.createdAt">
         {user.budget}
       </td>
       <td className="car.createdAt">
         {user.comentary}
+      </td>
+      <td className="car.createdAt">
+        {user.province}
       </td>
       <td className="car-link">
         <button onClick={ () => handleEditUser(user) }> <FontAwesomeIcon icon={faPen} /> </button>

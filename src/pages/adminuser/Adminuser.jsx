@@ -26,9 +26,9 @@ export default function Adminuser() {
       setValue("number", selectedUser.number)
       setValue("birthdate", selectedUser.birthdate)
       setValue("porvince", selectedUser.province)
-      setValue("budget", selectedUser.budget)
-      setValue("image", selectedUser.image)
       setValue("comentary", selectedUser.comentary)
+      setValue("image", selectedUser.image)
+      setValue("budget", selectedUser.budget)
     } else {
       reset()
     }
@@ -160,7 +160,7 @@ export default function Adminuser() {
                 <label className="input-label" htmlFor="password">
                   Contraseña
                 </label>
-                <input type="text" id="password" 
+                <input type="password" id="password"
                   {...register("password", { autoComplete: true, autoCapitalize: true, required: true, minLength: 8, maxLength: 25, })}
                 />
 
@@ -202,23 +202,23 @@ export default function Adminuser() {
                   {...register("province", { autoComplete: true, required: true, minLength: 1, })}
                 >
                   <option value="" />
-                  <option value="AR">Buenos Aires</option>
-                  <option value="BR">Entre Rios</option>
-                  <option value="UR">Misiones</option>
-                  <option value="CH">Corrientes</option>
-                  <option value="PA">Formosa</option>
-                  <option value="CO">Salta</option>
-                  <option value="ME">Jujuy</option>
-                  <option value="ME">Santiago del Estero</option>
-                  <option value="ME">San Juan</option>
-                  <option value="ME">Catamarca</option>
-                  <option value="ME">La Pampa</option>
-                  <option value="ME">La Rioja</option>
-                  <option value="ME">Mendoza</option>
-                  <option value="ME">Neuquen</option>
-                  <option value="ME">San Luis</option>
-                  <option value="ME">Cordoba</option>
-                  <option value="ME">Santa Fe</option>
+                  <option value="Buenos Aires">Buenos Aires</option>
+                  <option value="Entre Rios">Entre Rios</option>
+                  <option value="Misiones">Misiones</option>
+                  <option value="Corrientes">Corrientes</option>
+                  <option value="Formosa">Formosa</option>
+                  <option value="Salta">Salta</option>
+                  <option value="Jujuy">Jujuy</option>
+                  <option value="Santiago del Estero">Santiago del Estero</option>
+                  <option value="San Juan">San Juan</option>
+                  <option value="Catamarca">Catamarca</option>
+                  <option value="La Pampa">La Pampa</option>
+                  <option value="La Rioja">La Rioja</option>
+                  <option value="Mendoza">Mendoza</option>
+                  <option value="Neuquen">Neuquen</option>
+                  <option value="San Luis">San Luis</option>
+                  <option value="Cordoba">Cordoba</option>
+                  <option value="Santa fe">Santa Fe</option>
                 </select>
 
                 {errors.province?.type === "required" && <div className="input-error"> El campo es requerido </div>}
@@ -230,22 +230,22 @@ export default function Adminuser() {
                   Presupuesto
                 </label>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="F" {...register("province")} /> -$30.000
+                  <input type="radio" name="gbudget" value={-30000} {...register("budget")} /> -$30.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="M" {...register("province")} /> -$100.000
+                  <input type="radio" name="gbudget" value={-100000} {...register("budget")} /> -$100.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> -$500.000
+                  <input type="radio" name="gbudget" value={-500000} {...register("budget")} /> -$500.000
                 </div>
                 <div>
-                  <input type="radio" name="gebudget" defaultValue="O" {...register("province")} /> -$1.000.000
+                  <input type="radio" name="gebudget" value={-1000000} {...register("budget")} /> -$1.000.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> -$3.000.000
+                  <input type="radio" name="gbudget" value={-3000000} {...register("budget")} /> -$3.000.000
                 </div>
                 <div>
-                  <input type="radio" name="budget" defaultValue="O" {...register("province")} /> -$10.000.000
+                  <input type="radio" name="budget" value={-10000000} {...register("budget")} /> -$10.000.000
                 </div>
               </div>
               <div className="input-group">

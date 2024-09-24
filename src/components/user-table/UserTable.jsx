@@ -27,7 +27,7 @@ export default function UserTable({ users, deleteUser, handleEditUser} ) {
                         Fecha de cumpleaños
                     </th>
                     <th>
-                        provincia
+                        Presupuesto
                     </th>
                     <th>
                         Comentario

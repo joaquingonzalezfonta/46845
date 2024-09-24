@@ -40,7 +40,7 @@ export default function ProductDetail() {
     }
 
     return (
-        <main className="main-container">
+        <main className="main-details-container">
             <section className="product-section">
                 <h1 className="section-title"> Ferrari </h1>
                 <span className="section-subtitle">
@@ -48,15 +48,18 @@ export default function ProductDetail() {
                     Si puedes imaginarlo, puedes hacerlo{" "}
                 </span>
                 <div className="contenedor-info-ferrariSf90">
-                    <div className="ferrarisf90-image">
+                    <div className="car-image">
                         <img src={product?.image} alt={product?.name} />
                     </div>
-                    <div>
+                    <div className='car-details'>
                         <div className="informacion-ferrarisf90">
                             <h2 className="section-title"> {product?.name} </h2>
                             <p>
                                 {product?.description}
                             </p>
+                        </div>
+                        <div className="product-price-details">
+                            Precio ${product?.price}
                         </div>
                         <div className="input-group">
                             <button onClick={ () => addProduct(product)} type="submit"> Agregar al carrito </button>
