@@ -230,22 +230,22 @@ export default function Adminuser() {
                   Presupuesto
                 </label>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="F" {...register("province")} /> +$30.000
+                  <input type="radio" name="gbudget" defaultValue="F" {...register("province")} /> -$30.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="M" {...register("province")} /> +$100.000
+                  <input type="radio" name="gbudget" defaultValue="M" {...register("province")} /> -$100.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> +$500.000
+                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> -$500.000
                 </div>
                 <div>
-                  <input type="radio" name="gebudget" defaultValue="O" {...register("province")} /> +$1.000.000
+                  <input type="radio" name="gebudget" defaultValue="O" {...register("province")} /> -$1.000.000
                 </div>
                 <div>
-                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> +$3.000.000
+                  <input type="radio" name="gbudget" defaultValue="O" {...register("province")} /> -$3.000.000
                 </div>
                 <div>
-                  <input type="radio" name="budget" defaultValue="O" {...register("province")} /> +$10.000.000
+                  <input type="radio" name="budget" defaultValue="O" {...register("province")} /> -$10.000.000
                 </div>
               </div>
               <div className="input-group">

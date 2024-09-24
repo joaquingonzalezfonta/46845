@@ -2,7 +2,7 @@ import UserRow from '../user-row/UserRow'
 // import './AdminTable.css'
 
 
-export default function UserTable( users, deleteUser, handleEditUser ) {
+export default function UserTable({ users, deleteUser, handleEditUser} ) {
     return (
         <table className="car-table">
 
@@ -43,7 +43,7 @@ export default function UserTable( users, deleteUser, handleEditUser ) {
 
             <tbody>
                 {
-                    Array.isArray(users) && users.map(user => {
+                    users.map(user => {
                         return <UserRow key={user.id} user={user} deleteUser={deleteUser} handleEditUser={handleEditUser} />
                     })
                 }

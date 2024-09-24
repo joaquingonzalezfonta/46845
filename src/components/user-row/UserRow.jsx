@@ -3,39 +3,39 @@ import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 // import './AdminRow.css'
 
-export default function UserRow( users, deleteUser, handleEditUser) {
+export default function UserRow({ user, deleteUser, handleEditUser}) {
   return (
     <tr>
       <td className="car-image">
-        <img src={users.image} alt={users.name} />
+        <img src={user.image} alt={user.name} />
       </td>
       <td className="car-name">
-        {users.name}
+        {user.name}
       </td>
       <td className="car-description">
-        {users.mail}
+        {user.mail}
       </td>
       <td className="car-price">
-        {users.password}
+        {user.password}
       </td>
       <td className="car-category">
-        {users.number}
+        {user.number}
       </td>
       <td className="car.createdAt">
-        {users.birthdate}
+        {user.birthdate}
       </td>
       <td className="car.createdAt">
-        {users.province}
+        {user.province}
       </td>
       <td className="car.createdAt">
-        {users.budget}
+        {user.budget}
       </td>
       <td className="car.createdAt">
-        {users.comentary}
+        {user.comentary}
       </td>
       <td className="car-link">
-        <button onClick={ () => handleEditUser(users) }> <FontAwesomeIcon icon={faPen} /> </button>
-        <button onClick={ () => deleteUser(users.id) }> <FontAwesomeIcon icon={faTrash} /> </button>
+        <button onClick={ () => handleEditUser(user) }> <FontAwesomeIcon icon={faPen} /> </button>
+        <button onClick={ () => deleteUser(user.id) }> <FontAwesomeIcon icon={faTrash} /> </button>
       </td>
     </tr>
   )
