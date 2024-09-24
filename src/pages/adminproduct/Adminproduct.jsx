@@ -199,87 +199,89 @@ export default function Adminproduct() {
 
     return (
         <section className='form-section'>
-                <div className="admin-container">
-                    <div className="form-container-center">
-                        <div className="form-subcontainer">
-                            <h1 className='form-title'> Admin Prodcut </h1>
-                            <form onSubmit={handleSubmit(onProductSubmit)}>
-                                <div className="input-group">
-                                    <label htmlFor="name"> Nombre producto </label>
-                                    <input type="text" id='name'
-                                        {...register("name", { required: true, minLength: 3 })
-                                        } />
+            <h1 className="section-title"> Registro </h1>
+            <div className="section-subtitle">Registrate para una mejor experiencia</div>
+            <div className="admin-container">
+                <div className="form-container-center">
+                    <div className="form-subcontainer">
+                        <h2 className='form-title'> ADMIN PRODUCT </h2>
+                        <form onSubmit={handleSubmit(onProductSubmit)}>
+                            <div className="input-group">
+                                <label htmlFor="name"> Nombre producto </label>
+                                <input type="text" id='name'
+                                    {...register("name", { required: true, minLength: 3 })
+                                    } />
 
-                                    {errors.name?.type === "required" && <div className="input-error">El campo es requerido</div>}
-                                    {errors.name?.type === "minLength" && <div className="input-error">Minimo de caracteres es 3</div>}
-
-
-                                </div>
-
-                                <div className="input-group">
-                                    <label htmlFor="price"> Precio producto </label>
-                                    <input type="number" id='price'
-                                        {...register("price", { required: true, minLength: 1 })
-                                        } />
-
-                                    {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
-                                    {errors.price?.type === "minLength" && <div className="input-error">Minimo de caracteres es 1</div>}
+                                {errors.name?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                                {errors.name?.type === "minLength" && <div className="input-error">Minimo de caracteres es 3</div>}
 
 
-                                </div>
+                            </div>
 
-                                <div className="input-group">
-                                    <label htmlFor="description"> Descripción </label>
-                                    <textarea {...register("description",)} rows={5}></textarea>
-                                </div>
+                            <div className="input-group">
+                                <label htmlFor="price"> Precio producto </label>
+                                <input type="number" id='price'
+                                    {...register("price", { required: true, minLength: 1 })
+                                    } />
 
-                                <div className="input-group">
-                                    <label htmlFor="">Categoria</label>
-                                    <select {...register("category", { required: true })}>
-                                        <option value="Europa"> Europa </option>
-                                        <option value="Asia"> Asia </option>
-                                        <option value="América"> América </option>
-                                        <option value="Oceanía"> Oceanía </option>
-                                        <option value="África"> África </option>
-                                    </select>
-
-                                    {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
-
-                                </div>
-
-                                <div className="input-group">
-                                    <label htmlFor="createdAt">Fecha de ingreso</label>
-                                    <input type="date" {...register("createdAt", { required: true })} />
-
-                                    {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
-                                </div>
-
-                                <div className="input-group">
-                                    <label htmlFor="image"> Imagen </label>
-                                    <input type="url" {...register("image", { required: true })} />
-                                
-                                    {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
-                                </div>
+                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                                {errors.price?.type === "minLength" && <div className="input-error">Minimo de caracteres es 1</div>}
 
 
-                                <div className="input-group">
-                                    <button className={`${selectedProduct && 'btn-success'}`} type='submit' disabled={!isValid}>
-                                        {
-                                            selectedProduct ? "Editar" : "Crear"
-                                        }
-                                    </button>
+                            </div>
 
-                                </div>
-                            </form>
-                        </div>
-                    
+                            <div className="input-group">
+                                <label htmlFor="description"> Descripción </label>
+                                <textarea {...register("description",)} rows={5}></textarea>
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="">Categoria</label>
+                                <select {...register("category", { required: true })}>
+                                    <option value="Europa"> Europa </option>
+                                    <option value="Asia"> Asia </option>
+                                    <option value="América"> América </option>
+                                    <option value="Oceanía"> Oceanía </option>
+                                    <option value="África"> África </option>
+                                </select>
+
+                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="createdAt">Fecha de ingreso</label>
+                                <input type="date" {...register("createdAt", { required: true })} />
+
+                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="image"> Imagen </label>
+                                <input type="url" {...register("image", { required: true })} />
+
+                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                            </div>
+
+
+                            <div className="input-group">
+                                <button className={`${selectedProduct && 'btn-success'}`} type='submit' disabled={!isValid}>
+                                    {
+                                        selectedProduct ? "Editar" : "Crear"
+                                    }
+                                </button>
+
+                            </div>
+                        </form>
                     </div>
 
-                    <div className="contenedor-tabla">
-                        <AdminTable products={products} deleteProduct={deleteProduct} handleEditProduct={handleEditProduct} />
-
-                    </div>
                 </div>
+
+                <div className="contenedor-tabla">
+                    <AdminTable products={products} deleteProduct={deleteProduct} handleEditProduct={handleEditProduct} />
+
+                </div>
+            </div>
 
 
 

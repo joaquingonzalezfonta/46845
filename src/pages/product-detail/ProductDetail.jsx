@@ -44,8 +44,7 @@ export default function ProductDetail() {
             <section className="product-section">
                 <h1 className="section-title"> Ferrari </h1>
                 <span className="section-subtitle">
-                    {" "}
-                    Si puedes imaginarlo, puedes hacerlo{" "}
+                    Si puedes imaginarlo, puedes hacerlo
                 </span>
                 <div className="contenedor-info-ferrariSf90">
                     <div className="car-image">
@@ -66,8 +65,7 @@ export default function ProductDetail() {
                         </div>
                         <div className="input-group">
                             <button type="submit" className="btn-pantalla-principal">
-                                {" "}
-                                Pantalla Principal{" "}
+                                Pantalla Principal
                             </button>
                         </div>
                     </div>

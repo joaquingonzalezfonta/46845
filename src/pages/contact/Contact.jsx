@@ -2,7 +2,7 @@ import './Contact.css';
 
 
 export default function Contact() {
-  return (
+    return (
     <>
     <section className="form-section">
 
@@ -31,7 +31,7 @@ export default function Contact() {
 
                         <div className="input-group">
                             <label htmlFor="text" className="input-label">Comentario</label>
-                            <textarea rows="5" name="text" id="text" cols="10" placeholder="Escribe un comentario"
+                            <textarea rows="5" name="text" id="text" cols="10" placeholder="Escribe un comentario..."
                                 minLength="0" maxLength="300"></textarea>
                         </div>
 
@@ -53,5 +53,5 @@ export default function Contact() {
         </section>
     </>
     
-  )
+    )
 }

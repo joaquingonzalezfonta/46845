@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
-// import './AdminRow.css'
 
 export default function UserRow({ user, deleteUser, handleEditUser}) {
   return (

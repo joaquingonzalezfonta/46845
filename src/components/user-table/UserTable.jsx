@@ -1,5 +1,4 @@
 import UserRow from '../user-row/UserRow'
-// import './AdminTable.css'
 
 
 export default function UserTable({ users, deleteUser, handleEditUser} ) {

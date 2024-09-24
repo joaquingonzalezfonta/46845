@@ -5,15 +5,12 @@ export default function Footer() {
         <article className="footer-articles">
           <div className="feature-description">
             <a href="#" className="link-icons">
-              {" "}
-              <i className="fa-solid fa-phone" /> 3456-471626{" "}
+              <i className="fa-solid fa-phone" /> 3456-471626
             </a>
             <a href="#" className="link-icons">
-              {" "}
               <i className="fa-solid fa-location-dot" /> San Lorenzo 336 Este
             </a>
             <a href="#" className="link-icons">
-              {" "}
               <i className="fa-solid fa-envelope" />
               imporcar@concordia.com.ar
             </a>
@@ -33,16 +30,13 @@ export default function Footer() {
         <article className="footer-articles">
           <div className="feature-description">
             <a href="#" className="link-icons">
-              {" "}
-              <i className="fa-brands fa-square-x-twitter" /> Twitter{" "}
+              <i className="fa-brands fa-square-x-twitter" /> Twitter
             </a>
             <a href="#" className="link-icons">
-              {" "}
-              <i className="fa-brands fa-square-facebook" /> Facebook{" "}
+              <i className="fa-brands fa-square-facebook" /> Facebook
             </a>
             <a href="#" className="link-icons">
-              {" "}
-              <i className="fa-brands fa-instagram" /> Instagram{" "}
+              <i className="fa-brands fa-instagram" /> Instagram
             </a>
           </div>
         </article>

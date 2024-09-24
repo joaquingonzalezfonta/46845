@@ -12,7 +12,7 @@ export default function OrderDialog()  {
 
     
 
-  return (
+    return (
     <div className='modal-overlay' onClick={() => setToggleModal(!toggleModal)}>
         <div className="modal-content" onClick={(e) => e.stopPropagation() }>
 
