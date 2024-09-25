@@ -1,6 +1,5 @@
 
 import { useOrder } from '../../context/OrderContext';
-import './ProductCard.css';
 import { Link, NavLink } from "react-router-dom"
 
 export default function ProductCard({ prod }) {

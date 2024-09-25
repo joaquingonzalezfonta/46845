@@ -20,7 +20,7 @@ export default function AdminRow({ producto, deleteProduct, handleEditProduct })
       <td className="car-category">
         {producto.category}
       </td>
-      <td className="car.createdAt">
+      <td className="car-date">
         {producto.createdAt}
       </td>
       <td className="car-link">

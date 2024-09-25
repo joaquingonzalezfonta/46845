@@ -17,19 +17,19 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
       <td className="car-price">
         {user.password}
       </td>
-      <td className="car-category">
+      <td className="car-price">
         {user.number}
       </td>
-      <td className="car.createdAt">
+      <td className="car-birthdate">
         {user.birthdate}
       </td>
-      <td className="car.createdAt">
+      <td className="car-price">
         {user.budget}
       </td>
-      <td className="car.createdAt">
+      <td className="car-price">
         {user.comentary}
       </td>
-      <td className="car.createdAt">
+      <td className="car-price">
         {user.province}
       </td>
       <td className="car-link">

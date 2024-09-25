@@ -31,14 +31,6 @@ export default function OrderProvider({ children }) {
 
         if (productExists) {
             productExists.quantity++;
-            // const updateOrder = order.map(prod => {
-                
-            //     if(prod.id === product.id) {
-            //         prod.quantity++;
-            //     }
-
-            //     return prod;
-            // })
 
             setOrder([...order])
 
@@ -51,7 +43,7 @@ export default function OrderProvider({ children }) {
 
 
         Swal.fire({
-            position: 'bottom-end',
+            position: 'bottom-center',
             icon:'success',
             padding:'.5rem',
             title:'Producto Agregado',

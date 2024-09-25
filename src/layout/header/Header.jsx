@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useOrder } from "../../context/OrderContext";
-// import userImg from '../../assets/img/imgUser.png'
 
 export default function Header() {
 

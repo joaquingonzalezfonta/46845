@@ -32,6 +32,10 @@
 
         }
 
+        .car-date {
+            min-width: 100px;
+        }
+
         .car-name {
             padding: 0 10px;
             font-size: 1.25rem;

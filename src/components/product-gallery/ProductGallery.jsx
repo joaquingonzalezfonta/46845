@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../product-card/ProductCard';
-import './ProductGallery.css';
 import axios from 'axios';
 
 const URL = import.meta.env.VITE_SERVER_URL;
@@ -13,7 +12,6 @@ export default function ProductGallery() {
     useEffect(() => { getProducts() }, [])
 
     async function getProducts() {
-        // Obtener los productos desde mockapi y actualizar el estado
         try {
             
             const response = await axios.get(`${URL}/products`)

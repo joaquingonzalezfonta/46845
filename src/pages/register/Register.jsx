@@ -152,7 +152,7 @@ export default function Register() {
                                 id="obs"
                                 cols={5}
                                 rows={10}
-                                placeholder="Escribe un comentario"
+                                placeholder="Escribe un comentario..."
                                 minLength={0}
                                 maxLength={300}
                                 defaultValue={""}
@@ -160,8 +160,7 @@ export default function Register() {
                         </div>
                         <div className="input-group">
                             <button type="submit" className="Send-button">
-                                {" "}
-                                Enviar{" "}
+                                Enviar
                             </button>
                         </div>
                     </form>

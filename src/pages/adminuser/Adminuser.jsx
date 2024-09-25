@@ -3,7 +3,7 @@ import UserTable from "../../components/user-table/UserTable"
 import { useForm } from "react-hook-form"
 import axios from "axios";
 import Swal from "sweetalert2";
-// import "./Adminproduct.css"
+
 
 
 const URL = "https://66cf3a98901aab24842171a2.mockapi.io/api/v1";
@@ -189,11 +189,10 @@ export default function Adminuser() {
                   Fecha de cumpleaños
                 </label>
                 <input type="date" id="birthdate"
-                  {...register("birthdate", { required: true, minLength: 8, maxLength: "2006-09-21", })}
+                  {...register("birthdate", { required: true, minLength: 8, })}
                 />
 
                 {errors.birthdate?.type === "required" && <div className="input-error"> El campo es requerido </div>}
-                {errors.birthdate?.type === "maxLength" && <div className="input-error"> Fecha máxima 2006-09-21 </div>}
 
               </div>
               <div className="input-group">

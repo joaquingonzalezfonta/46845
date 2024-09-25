@@ -19,11 +19,6 @@ export default function Adminproduct() {
     useEffect(() => { getProducts(); }, [])
 
 
-
-
-
-
-
     useEffect(() => {
         if (selectedProduct) {
             // reset({
@@ -40,12 +35,6 @@ export default function Adminproduct() {
     }, [selectedProduct, setValue, reset])
 
 
-
-
-
-
-
-
     async function getProducts() {
         try {
             // Carga de productos
@@ -59,18 +48,6 @@ export default function Adminproduct() {
             console.log(error)
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     function deleteProduct(identificador) {
@@ -103,25 +80,6 @@ export default function Adminproduct() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     async function onProductSubmit(producto) {
         console.log(producto)
 
@@ -148,7 +106,6 @@ export default function Adminproduct() {
                 console.log(response.data)
             }
 
-            // reset();
             getProducts();
 
         } catch (error) {
@@ -157,44 +114,11 @@ export default function Adminproduct() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-    // EDITAR PRODUCTOS
-    // Crear un funcion para obtener los datos del producto a editar
     function handleEditProduct(producto) {
 
         console.log("Producto a editar", producto)
         setSelectedProduct(producto);
-        // setValue("name", producto.name);
-        // setValue("price", producto.price);
-
     }
-    // Rellenar el formulario con la data del producto seleccionado
-    // Definir alguna formar de determinar si estamos editando o agregando un producto
-    // Enviar la nueva data a nuestro backend (mockapi) con una peticion a traves del metodo PUT
-    // Solicitar los productos nuevamente para poder  ver las modificaciones en el prod editado
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return (
