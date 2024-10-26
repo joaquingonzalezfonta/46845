@@ -2,14 +2,13 @@ import { Route, Routes } from "react-router-dom"
 import Contact from "./pages/contact/Contact"
 import Home from "./pages/home/Home"
 import Login from "./pages/login/Login"
-import Header from "./layout/header/Header"
-import Footer from "./layout/footer/Footer"
 import Aboutus from "./pages/aboutus/Aboutus"
 import Register from "./pages/register/Register"
 import Adminproduct from "./pages/adminproduct/Adminproduct"
 import ProductDetail from "./pages/product-detail/ProductDetail"
-import OrderDialog from "./components/order-dialog/OrderDialog"
-import Adminuser from "./pages/adminuser/adminuser"
+import Adminuser from "./pages/adminuser/Adminuser"
+import Layout from "./layout/Layout"
+import AdminGuard from "./services/guard/AdminGuard"
 
 
 export default function App() {
@@ -18,44 +17,41 @@ export default function App() {
     <>
 
 
-      <Header />
-
-      <OrderDialog />
-
-      
-
-      <main className="main-container">
-        
-        
 
         <Routes>
 
-          <Route path="/" element={<Home />} />
-
-          <Route path="/product-detail/:id" element={<ProductDetail />} />
-
-          <Route path="/register" element={<Register />} />
-
-          <Route path="/contact" element={<Contact />} />
-
-          <Route path="/aboutus" element={<Aboutus />} />
-
-          <Route path="/adminproduct" element={<Adminproduct />} />
-
           <Route path="/login" element={<Login />} />
 
-          <Route path="/adminuser" element={<Adminuser /> } />
+          <Route path="/" element={<Layout />} >
 
+            <Route index element={<Home />} />
 
+            <Route path="product-detail/:id" element={<ProductDetail />} />
 
+            <Route path="register" element={<Register />} />
+
+            <Route path="contact" element={<Contact />} />
+
+            <Route path="aboutus" element={<Aboutus />} />
+
+            <Route path="adminproduct" element={
+              
+              <AdminGuard>
+                <Adminproduct />
+              </AdminGuard>
+          
+            } />
+
+            <Route path="adminuser" element={
+              
+              <AdminGuard>
+                <Adminuser />
+              </AdminGuard>
+              
+            } />
+
+          </Route>
         </Routes>
-      </main>
-
-      <Footer />
-
-
-
-
 
     </>
   )

@@ -6,7 +6,7 @@ import AdminTable from "../../components/admin-table/AdminTable"
 import Swal from 'sweetalert2';
 
 
-const URL = "https://66cf3a98901aab24842171a2.mockapi.io/api/v1";
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Adminproduct() {
 
@@ -15,8 +15,9 @@ export default function Adminproduct() {
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm()
 
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [ categories, setCategories ] = useState([])
 
-    useEffect(() => { getProducts(); }, [])
+    useEffect(() => { getProducts(); getCategories }, [])
 
 
     useEffect(() => {
@@ -34,6 +35,20 @@ export default function Adminproduct() {
         }
     }, [selectedProduct, setValue, reset])
 
+    async function getCategories() {
+        try {
+            
+            const response = await axios.get(`${URL}/categories`)
+
+            console.log(response.data);
+
+            setCategories(response.data.categories)
+
+        } catch (error) {
+            console.log(error)
+            alert("No se pudieron cargar las categorias")
+        }
+    }
 
     async function getProducts() {
         try {
@@ -84,11 +99,21 @@ export default function Adminproduct() {
         console.log(producto)
 
         try {
+
+            const formData = new FormData()
+            formData.append("name", producto.name);
+            formData.append("price", producto.price);
+            formData.append("description", producto.description);
+            formData.append("category", producto.category);
+            if(producto.image[0]) {
+                formData.append("image", producto.image[0])
+            }
+
             if (selectedProduct) {
                 // Hacer un put
-                const { id } = selectedProduct;
+                const { _id } = selectedProduct;
 
-                const response = await axios.put(`${URL}/products/${id}`, producto)
+                const response = await axios.put(`${URL}/products/${_id}`, formData)
                 console.log(response.data)
 
                 Swal.fire({
@@ -162,11 +187,11 @@ export default function Adminproduct() {
                             <div className="input-group">
                                 <label htmlFor="">Categoria</label>
                                 <select {...register("category", { required: true })}>
-                                    <option value="Europa"> Europa </option>
-                                    <option value="Asia"> Asia </option>
-                                    <option value="América"> América </option>
-                                    <option value="Oceanía"> Oceanía </option>
-                                    <option value="África"> África </option>
+                                    {
+                                        categories.map(cat => (
+                                            <option key={cat._id} value={cat.name}> { cat.viewValue } </option>
+                                        ))
+                                    }
                                 </select>
 
                                 {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
@@ -182,7 +207,7 @@ export default function Adminproduct() {
 
                             <div className="input-group">
                                 <label htmlFor="image"> Imagen </label>
-                                <input type="url" {...register("image", { required: true })} />
+                                <input accept='image/*' type="file" {...register("image", { required: true })} />
 
                                 {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
                             </div>

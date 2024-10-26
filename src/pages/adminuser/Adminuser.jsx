@@ -5,8 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 
-
-const URL = "https://66cf3a98901aab24842171a2.mockapi.io/api/v1";
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Adminuser() {
 
@@ -15,6 +14,7 @@ export default function Adminuser() {
   const { register, setValue, reset, handleSubmit, formState: { errors } } = useForm()
 
   const [selectedUser, setSelectedUser] = useState(null);
+
 
   useEffect(() => { getUsers(); }, [])
 
@@ -38,7 +38,7 @@ export default function Adminuser() {
 
   async function getUsers() {
     try {
-      const response = await axios.get(`${URL}/users`);
+      const response = await axios.get(`${URL}/users`)
 
       console.log(response.data)
 
@@ -87,9 +87,9 @@ export default function Adminuser() {
     try {
       if (selectedUser) {
 
-        const { id } = selectedUser;
+        const { _id } = selectedUser;
 
-        const response = await axios.put(`${URL}/users/${id}`, user)
+        const response = await axios.put(`${URL}/users/${_id}`, user)
         console.log(response.data)
 
         Swal.fire({

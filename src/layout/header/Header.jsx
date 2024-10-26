@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useOrder } from "../../context/OrderContext";
+import { useUser } from "../../context/UserContext";
 
 export default function Header() {
 
     const { setToggleModal, count } = useOrder()
+
+    const { user, logout } = useUser()
 
     return (
         <header className="header-principal">
@@ -24,7 +27,7 @@ export default function Header() {
                 <nav className="nav-principal">
                     <ul className="nav-list">
                         <li className="nav-item">
-                            <NavLink to="/" className="nav-link">
+                            <NavLink to='/' className="nav-link">
                                 HOME
                             </NavLink>
                         </li>
@@ -43,16 +46,38 @@ export default function Header() {
                                 ABOUT US
                             </NavLink>
                         </li>
+
+                        {
+                            user?.role === "admin" &&
                         <li className="nav-item">
                             <NavLink to='/Adminproduct' className="nav-link">
                                 ADMIN PRODUCT
                             </NavLink>
                         </li>
+                        }
+
+                        {                       
+                            user?.role === "admin" &&
                         <li className="nav-item">
                             <NavLink to='/Adminuser' className="nav-link">
                                 ADMIN USER
                             </NavLink>
                         </li>
+                        }
+
+                        { user ? ( <li className="nav-item">
+                                    <NavLink onClick={logout} className="nav-link">
+                                        LOGOUT
+                                    </NavLink>
+                                </li> 
+                                ) : (
+                                <li className="nav-item">
+                                    <NavLink to='/Login' className="nav-link">
+                                        LOGIN
+                                    </NavLink>
+                                </li>
+                        )}
+                        
                     </ul>
                 </nav>
             </div>
@@ -60,7 +85,7 @@ export default function Header() {
 
                 <a className="user-name" href="/Adminuser">
                     <div>
-                        Joaquin
+                        { user?.name || "NO USER" }
                     </div>
                 </a>
                     

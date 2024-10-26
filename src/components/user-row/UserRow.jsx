@@ -34,7 +34,7 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
       </td>
       <td className="car-link">
         <button onClick={ () => handleEditUser(user) }> <FontAwesomeIcon icon={faPen} /> </button>
-        <button onClick={ () => deleteUser(user.id) }> <FontAwesomeIcon icon={faTrash} /> </button>
+        <button onClick={ () => deleteUser(user._id) }> <FontAwesomeIcon icon={faTrash} /> </button>
       </td>
     </tr>
   )

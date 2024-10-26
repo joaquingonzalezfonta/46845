@@ -10,7 +10,7 @@ export default function ProductCard({ prod }) {
     
     <article className="product-card">
                 <div className="card-header">
-                    <NavLink to={`/product-detail/${prod.id}`}
+                    <NavLink to={`/product-detail/${prod._id}`}
                         className="enlace-vista-rapida">
                   <div className="product-image">
                         <img
@@ -27,7 +27,7 @@ export default function ProductCard({ prod }) {
                         <div className="product-category"> {prod.createdAt} </div>
                     </div>
                     <div className="product-name">
-                        <Link to={`/product-detail/${prod.id}`}> {prod.name} </Link>
+                        <Link to={`/product-detail/${prod._id}`}> {prod.name} </Link>
                     </div>
                     <div className="product-price">
                         <div className="product-normal-price"> ${prod.price} </div>

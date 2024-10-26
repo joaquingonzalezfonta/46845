@@ -32,7 +32,7 @@ export default function AdminTable({ products, deleteProduct, handleEditProduct}
         </thead>
 
         <tbody>
-          {
+        {
             products.map(prod => {
               return <AdminRow key={prod.id} producto={prod} deleteProduct={deleteProduct} handleEditProduct={handleEditProduct}/>
             })

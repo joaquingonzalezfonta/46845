@@ -26,11 +26,11 @@ export default function OrderItem({ item, }) {
             <div className="item-count">
                 <input className='item-input-dialog' type='number' 
                         defaultValue={item.quantity} 
-                        min="1" onChange={(evt) => changeItemQuantity(item.id, evt.target.valueAsNumber)} />
+                        min="1" onChange={(evt) => changeItemQuantity(item._id, evt.target.valueAsNumber)} />
             </div>
 
             <div className="item-actions">
-                <button onClick={() => removeItem(item.id)}>
+                <button onClick={() => removeItem(item._id)}>
                     <FontAwesomeIcon icon={faTrash} />
                 </button>
             </div>
