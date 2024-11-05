@@ -3,17 +3,19 @@ import UserTable from "../../components/user-table/UserTable"
 import { useForm } from "react-hook-form"
 import axios from "axios";
 import Swal from "sweetalert2";
+import '../../services/interceptor/interceptor';
+import useApi from "../../services/interceptor/interceptor";
 
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Adminuser() {
 
+  const api = useApi()
   const [users, setUsers] = useState([]);
-
   const { register, setValue, reset, handleSubmit, formState: { errors } } = useForm()
-
   const [selectedUser, setSelectedUser] = useState(null);
+  const {setTotalItems} = useState([])
 
 
   useEffect(() => { getUsers(); }, [])
@@ -38,12 +40,14 @@ export default function Adminuser() {
 
   async function getUsers() {
     try {
-      const response = await axios.get(`${URL}/users`)
+      const response = await api.get(`$/users`)
 
-      console.log(response.data)
+      const { users, total } = response.data;
 
-      setUsers(response.data)
-
+      setUsers(users)
+      setTotalItems(total)
+      
+      console.log(response)
     } catch (error) {
       console.log(error)
     }

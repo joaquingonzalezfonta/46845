@@ -2,7 +2,8 @@
 import { useOrder } from '../../context/OrderContext';
 import { Link, NavLink } from "react-router-dom"
 
-export default function ProductCard({ prod }) {
+
+export default function ProductCard({ prod, category }) {
 
   const { addProduct } = useOrder();
   
@@ -23,8 +24,8 @@ export default function ProductCard({ prod }) {
                 </div>
                 <div className="card-body">
                     <div className="product-info">
-                        <div className="product-category"> {prod.category} </div>
-                        <div className="product-category"> {prod.createdAt} </div>
+                        <div className="product-category"> {category} </div>
+                        <div className="product-category"> {category} </div>
                     </div>
                     <div className="product-name">
                         <Link to={`/product-detail/${prod._id}`}> {prod.name} </Link>

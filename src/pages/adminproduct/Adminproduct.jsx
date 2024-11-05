@@ -4,18 +4,20 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AdminTable from "../../components/admin-table/AdminTable"
 import Swal from 'sweetalert2';
+import '../../services/interceptor/interceptor'
+import useApi from '../../services/interceptor/interceptor';
 
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Adminproduct() {
 
+    const api = useApi()
     const [products, setProducts] = useState([])
-
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm()
-
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [ categories, setCategories ] = useState([])
+    const {setTotalItems} = useState([])
 
     useEffect(() => { getProducts(); getCategories }, [])
 
@@ -38,7 +40,7 @@ export default function Adminproduct() {
     async function getCategories() {
         try {
             
-            const response = await axios.get(`${URL}/categories`)
+            const response = await api.get(`/categories`)
 
             console.log(response.data);
 
@@ -52,13 +54,15 @@ export default function Adminproduct() {
 
     async function getProducts() {
         try {
-            // Carga de productos
-            const response = await axios.get(`${URL}/products`);
+            // const response = await axios.get(`${URL}/products`);
+            const response = await api.get(`/products`)
 
-            console.log(response.data)
+            const { products, total } = response.data;
 
-            setProducts(response.data)
-
+            setProducts(products)
+            setTotalItems(total)
+            
+            console.log(response) 
         } catch (error) {
             console.log(error)
         }
@@ -186,7 +190,7 @@ export default function Adminproduct() {
 
                             <div className="input-group">
                                 <label htmlFor="">Categoria</label>
-                                <select {...register("category", { required: true })}>
+                                <select {...register("category", { required: false })}>
                                     {
                                         categories.map(cat => (
                                             <option key={cat._id} value={cat.name}> { cat.viewValue } </option>

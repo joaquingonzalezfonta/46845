@@ -2,10 +2,10 @@ import { useParams } from 'react-router-dom'
 import './ProductDetail.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Spinner } from 'react-bootstrap';
+// import { Spinner } from 'react-bootstrap';
 import { useOrder } from '../../context/OrderContext';
 
-const URL = import.meta.env.VITE_SERVER_URL;
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 
 export default function ProductDetail() {
@@ -25,7 +25,7 @@ export default function ProductDetail() {
 
             const response = await axios.get(`${URL}/products/${id}`)
             
-            setProduct(response.data)
+            setProduct(response.data.products)
 
         } catch (error) {
 
@@ -35,9 +35,9 @@ export default function ProductDetail() {
         }
     }
 
-    if(!product) {
-        return <Spinner></Spinner>
-    }
+    // if(!product) {
+    //     return <Spinner></Spinner>
+    // }
 
     return (
         <main className="main-details-container">
