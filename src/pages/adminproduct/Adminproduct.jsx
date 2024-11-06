@@ -69,7 +69,7 @@ export default function Adminproduct() {
     }
 
 
-    function deleteProduct(identificador) {
+    function deleteProduct(id) {
 
         Swal.fire({
             title: "Borrar producto",
@@ -80,7 +80,7 @@ export default function Adminproduct() {
         }).then(async (result) => {
             try {
                 if (result.isConfirmed) {
-                    const response = await axios.delete(`${URL}/products/${identificador}`);
+                    const response = await axios.delete(`${URL}/products/${id}`);
 
                     console.log(response.data)
 

@@ -14,7 +14,7 @@ export default function ProductDetail() {
 
     const [product, setProduct] = useState()
 
-    const { id } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
         getProduct();
@@ -25,7 +25,7 @@ export default function ProductDetail() {
 
             const response = await axios.get(`${URL}/products/${id}`)
             
-            setProduct(response.data.products)
+            setProduct(response.data)
 
         } catch (error) {
 
@@ -42,7 +42,7 @@ export default function ProductDetail() {
     return (
         <main className="main-details-container">
             <section className="product-section">
-                <h1 className="section-title"> Ferrari </h1>
+                <h1 className="section-title"> { product?.name} </h1>
                 <span className="section-subtitle">
                     Si puedes imaginarlo, puedes hacerlo
                 </span>

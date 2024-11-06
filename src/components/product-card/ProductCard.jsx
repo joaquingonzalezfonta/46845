@@ -2,6 +2,7 @@
 import { useOrder } from '../../context/OrderContext';
 import { Link, NavLink } from "react-router-dom"
 
+// const URL = import.meta.env.VITE_LOCAL_SERVER
 
 export default function ProductCard({ prod, category }) {
 

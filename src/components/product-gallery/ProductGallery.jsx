@@ -7,10 +7,10 @@ import Pagination from '../paginattion/Pagination';
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 
-export default function ProductGallery({ category }) {
+export default function ProductGallery() {
 
     const [ products, setProducts ] = useState([]);
-    const [ limit, setLimit ] = useState(3);
+    const [ limit, setLimit ] = useState(6);
     const [ total, setTotal ] = useState(0);
 
     const { logout } = useUser()
@@ -43,8 +43,6 @@ export default function ProductGallery({ category }) {
 
     return (
         <section>
-            <h2> lista de productos: {category} </h2>
-
             <div className="product-card-container">
             {
                 products.map(producto => (<ProductCard key={producto.id} prod={producto} />
