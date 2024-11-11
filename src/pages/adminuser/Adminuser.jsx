@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import '../../services/interceptor/interceptor';
 import useApi from "../../services/interceptor/interceptor";
+import { useUser } from "../../context/UserContext";
 
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
@@ -15,7 +16,8 @@ export default function Adminuser() {
   const [users, setUsers] = useState([]);
   const { register, setValue, reset, handleSubmit, formState: { errors } } = useForm()
   const [selectedUser, setSelectedUser] = useState(null);
-  const {setTotalItems} = useState([])
+  // const { setTotalItems } = useState([])
+  const { token } = useUser()
 
 
   useEffect(() => { getUsers(); }, [])
@@ -38,18 +40,34 @@ export default function Adminuser() {
   }, [selectedUser, setValue, reset])
 
 
+  // async function getUsers() {
+  //   try {
+  //     const response = await api.get(`$/users`)
+
+  //     const { users, total } = response.data;
+
+  //     setUsers(users)
+  //     setTotalItems(total)
+      
+  //     console.log(response)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   async function getUsers() {
     try {
-      const response = await api.get(`$/users`)
+      const response = await api.get(`/users`, {
+        headers: {
+          Authorization: token
+        }
+      });
+      console.log(response.data);
 
-      const { users, total } = response.data;
-
-      setUsers(users)
-      setTotalItems(total)
-      
-      console.log(response)
+      // const { users = [], total = 0 } = response.data || {};
+      setUsers(response.data);
+      // setTotalItems(total);
     } catch (error) {
-      console.log(error)
+      console.error("Error en getUsers:", error);
     }
   }
 

@@ -14,7 +14,7 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
         {user.name}
       </td>
       <td className="car-price">
-        {user.mail}
+        {user.email}
       </td>
       <td className="car-price">
         {user.password}

@@ -56,13 +56,13 @@ export default function Adminproduct() {
         try {
             // const response = await axios.get(`${URL}/products`);
             const response = await api.get(`/products`)
+            console.log(response) 
 
             const { products, total } = response.data;
 
             setProducts(products)
             setTotalItems(total)
             
-            console.log(response) 
         } catch (error) {
             console.log(error)
         }
@@ -190,7 +190,7 @@ export default function Adminproduct() {
 
                             <div className="input-group">
                                 <label htmlFor="">Categoria</label>
-                                <select {...register("category", { required: false })}>
+                                <select {...register("category", { required: true })}>
                                     {
                                         categories.map(cat => (
                                             <option key={cat._id} value={cat.name}> { cat.viewValue } </option>
