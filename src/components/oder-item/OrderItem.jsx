@@ -3,6 +3,8 @@ import './OrderItem.css'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useOrder } from '../../context/OrderContext'
 
+const URL = import.meta.env.VITE_LOCAL_SERVER
+
 export default function OrderItem({ item, }) {
 
     const { removeItem, changeItemQuantity } = useOrder()
@@ -10,7 +12,7 @@ export default function OrderItem({ item, }) {
     return (
         <li className="order-item">
             <div className="item-image">
-                <img src={item.image} alt="" />
+                <img src={`${URL}/images/products/${item.image}`} alt="" />
             </div>
 
             <div className="item-info">

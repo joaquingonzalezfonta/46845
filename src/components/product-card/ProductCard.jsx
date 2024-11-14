@@ -2,7 +2,7 @@
 import { useOrder } from '../../context/OrderContext';
 import { Link, NavLink } from "react-router-dom"
 
-// const URL = import.meta.env.VITE_LOCAL_SERVER
+const URL = import.meta.env.VITE_LOCAL_SERVER
 
 export default function ProductCard({ prod, category }) {
 
@@ -16,7 +16,7 @@ export default function ProductCard({ prod, category }) {
                         className="enlace-vista-rapida">
                   <div className="product-image">
                         <img
-                          src={prod.image}
+                          src={`${URL}/images/products/${prod.image}`}
                           alt={prod.name}
                         />
                       </div>

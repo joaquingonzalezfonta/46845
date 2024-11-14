@@ -19,7 +19,7 @@ export default function Adminproduct() {
     const [ categories, setCategories ] = useState([])
     const {setTotalItems} = useState([])
 
-    useEffect(() => { getProducts(); getCategories }, [])
+    useEffect(() => { getProducts(); getCategories() }, [])
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Adminproduct() {
             setValue("name", selectedProduct.name),
                 setValue("price", selectedProduct.price),
                 setValue("description", selectedProduct.description),
-                setValue("image", selectedProduct.image),
+                // setValue("image", selectedProduct.image),
                 setValue("category", selectedProduct.category),
                 setValue("createdAt", selectedProduct.createdAt)
             // })
@@ -73,7 +73,7 @@ export default function Adminproduct() {
 
         Swal.fire({
             title: "Borrar producto",
-            text: "Realmente desea borrar",
+            text: "Realmente desea borrar?",
             icon: "warning",
             reverseButtons: true,
             showCancelButton: true,
@@ -109,6 +109,7 @@ export default function Adminproduct() {
             formData.append("price", producto.price);
             formData.append("description", producto.description);
             formData.append("category", producto.category);
+            formData.append("createdAt", producto.createdAt);
             if(producto.image[0]) {
                 formData.append("image", producto.image[0])
             }
@@ -131,7 +132,7 @@ export default function Adminproduct() {
 
             } else {
                 // si no tengo estado selectedProduct (null) significa que estoy creando un producto
-                const response = await axios.post(`${URL}/products`, producto)
+                const response = await axios.post(`${URL}/products`, formData)
                 console.log(response.data)
             }
 
@@ -198,22 +199,22 @@ export default function Adminproduct() {
                                     }
                                 </select>
 
-                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                                {errors.category?.type === "required" && <div className="input-error">El campo es requerido</div>}
 
                             </div>
 
                             <div className="input-group">
                                 <label htmlFor="createdAt">Fecha de ingreso</label>
-                                <input type="date" {...register("createdAt", { required: true })} />
+                                <input type="date" id="createdAt" {...register("createdAt", { required: true })} />
 
-                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                                {errors.createdAt?.type === "required" && <div className="input-error">El campo es requerido</div>}
                             </div>
 
                             <div className="input-group">
                                 <label htmlFor="image"> Imagen </label>
                                 <input accept='image/*' type="file" {...register("image", { required: true })} />
 
-                                {errors.price?.type === "required" && <div className="input-error">El campo es requerido</div>}
+                                {errors.image?.type === "required" && <div className="input-error">El campo es requerido</div>}
                             </div>
 
 

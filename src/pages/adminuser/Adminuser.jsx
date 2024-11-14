@@ -16,44 +16,63 @@ export default function Adminuser() {
   const [users, setUsers] = useState([]);
   const { register, setValue, reset, handleSubmit, formState: { errors } } = useForm()
   const [selectedUser, setSelectedUser] = useState(null);
+  const [ provinces, setProvinces ] = useState([])
+  const [ budget, setBudget ] = useState([])
   // const { setTotalItems } = useState([])
   const { token } = useUser()
 
 
-  useEffect(() => { getUsers(); }, [])
+  useEffect(() => { getUsers(); getProvinces(), getBudget() }, [])
 
   useEffect(() => {
     if (selectedUser) {
       setValue("name", selectedUser.name)
-      setValue("mail", selectedUser.mail)
+      setValue("email", selectedUser.email)
       setValue("password", selectedUser.password)
       setValue("number", selectedUser.number)
       setValue("birthdate", selectedUser.birthdate)
+      setValue("budget", selectedUser.budget)
       setValue("porvince", selectedUser.province)
       setValue("comentary", selectedUser.comentary)
-      setValue("image", selectedUser.image)
-      setValue("budget", selectedUser.budget)
+      // setValue("image", selectedUser.image)
     } else {
       reset()
     }
 
   }, [selectedUser, setValue, reset])
 
+  async function getProvinces() {
+    try {
+        
+        const response = await api.get(`/provinces`)
 
-  // async function getUsers() {
-  //   try {
-  //     const response = await api.get(`$/users`)
+        console.log(response.data);
 
-  //     const { users, total } = response.data;
+        setProvinces(response.data.provinces)
 
-  //     setUsers(users)
-  //     setTotalItems(total)
+    } catch (error) {
+        console.log(error)
+        alert("No se pudieron cargar las provincias")
+    }
+}
+
+async function getBudget() {
+  try {
       
-  //     console.log(response)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+      const response = await api.get(`/budget`)
+
+      console.log(response.data);
+
+      setBudget(response.data.budget)
+
+  } catch (error) {
+      console.log(error)
+      alert("No se pudieron cargar los presupuestos")
+  }
+}
+
+
+
   async function getUsers() {
     try {
       const response = await api.get(`/users`, {
@@ -76,7 +95,7 @@ export default function Adminuser() {
 
     Swal.fire({
       title: "Borrar usuario",
-      text: "Realmente desea borrar",
+      text: "Realmente desea borrar?",
       icon: "warning",
       reverseButtons: true,
       showCancelButton: true,
@@ -107,11 +126,23 @@ export default function Adminuser() {
     console.log(user)
 
     try {
+
+      const formData = new FormData()
+            formData.append("name", user.name);
+            formData.append("price", user.price);
+            formData.append("description", user.description);
+            formData.append("province", user.province);
+            formData.append("createdAt", user.createdAt);
+            formData.append("budget", user.budget);
+            if(user.image[0]) {
+                formData.append("image", user.image[0])
+            }
+
       if (selectedUser) {
 
         const { _id } = selectedUser;
 
-        const response = await axios.put(`${URL}/users/${_id}`, user)
+        const response = await axios.put(`${URL}/users/${_id}`, formData)
         console.log(response.data)
 
         Swal.fire({
@@ -125,7 +156,7 @@ export default function Adminuser() {
 
       } else {
 
-        const response = await axios.post(`${URL}/users`, user)
+        const response = await axios.post(`${URL}/users`, formData)
         console.log(response.data)
 
       }
@@ -168,16 +199,16 @@ export default function Adminuser() {
 
               </div>
               <div className="input-group">
-                <label className="input-label" htmlFor="mail">
+                <label className="input-label" htmlFor="email">
                   Correo electronico
                 </label>
-                <input type="text" id="mail"
-                  {...register("mail", { autoComplete: true, autoCapitalize: true, required: true, minLength: 10, maxLength: 30, pattern: "[A-Za-z0-9._+-']+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$" })}
+                <input type="text" id="email"
+                  {...register("email", { autoComplete: true, autoCapitalize: true, required: true, minLength: 10, maxLength: 30, pattern: "[A-Za-z0-9._+-']+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$" })}
                 />
 
-                {errors.mail?.type === "required" && <div className="input-error"> El campo es requerido </div>}
-                {errors.mail?.type === "minLength" && <div className="input-error"> El minimo de caracteres es 10 </div>}
-                {errors.mail?.type === "maxLength" && <div className="input-error"> El maximo de caracteres es 30 </div>}
+                {errors.email?.type === "required" && <div className="input-error"> El campo es requerido </div>}
+                {errors.email?.type === "minLength" && <div className="input-error"> El minimo de caracteres es 10 </div>}
+                {errors.email?.type === "maxLength" && <div className="input-error"> El maximo de caracteres es 30 </div>}
 
               </div>
               <div className="input-group">
@@ -211,7 +242,7 @@ export default function Adminuser() {
                   Fecha de cumpleaños
                 </label>
                 <input type="date" id="birthdate"
-                  {...register("birthdate", { required: true, minLength: 8, })}
+                  {...register("birthdate", { required: true, })}
                 />
 
                 {errors.birthdate?.type === "required" && <div className="input-error"> El campo es requerido </div>}
@@ -221,55 +252,40 @@ export default function Adminuser() {
                 <label className="input-label" htmlFor="province">
                   Seleccione su provincia
                 </label>
-                <select name="province" id="province"
-                  {...register("province", { autoComplete: true, required: true, minLength: 1, })}
-                >
-                  <option value="" />
-                  <option value="Buenos Aires">Buenos Aires</option>
-                  <option value="Entre Rios">Entre Rios</option>
-                  <option value="Misiones">Misiones</option>
-                  <option value="Corrientes">Corrientes</option>
-                  <option value="Formosa">Formosa</option>
-                  <option value="Salta">Salta</option>
-                  <option value="Jujuy">Jujuy</option>
-                  <option value="Santiago del Estero">Santiago del Estero</option>
-                  <option value="San Juan">San Juan</option>
-                  <option value="Catamarca">Catamarca</option>
-                  <option value="La Pampa">La Pampa</option>
-                  <option value="La Rioja">La Rioja</option>
-                  <option value="Mendoza">Mendoza</option>
-                  <option value="Neuquen">Neuquen</option>
-                  <option value="San Luis">San Luis</option>
-                  <option value="Cordoba">Cordoba</option>
-                  <option value="Santa fe">Santa Fe</option>
+                <select
+                  {...register("province", { required: true })}>
+                    {
+                      provinces.map(pro => (
+                        <option key={pro._id} value={pro.name}> {pro.viewValue} </option>
+                      ))
+                    }
                 </select>
 
                 {errors.province?.type === "required" && <div className="input-error"> El campo es requerido </div>}
 
               </div>
+
+
+
               <div className="input-group">
-                <label className="input-label" htmlFor="budget">
-                  Presupuesto
+              <label className="input-label" htmlFor="budget">
+                  Seleccione su presupuesto
                 </label>
-                <div>
-                  <input type="radio" name="gbudget" value={-30000} {...register("budget")} /> -$30.000
-                </div>
-                <div>
-                  <input type="radio" name="gbudget" value={-100000} {...register("budget")} /> -$100.000
-                </div>
-                <div>
-                  <input type="radio" name="gbudget" value={-500000} {...register("budget")} /> -$500.000
-                </div>
-                <div>
-                  <input type="radio" name="gebudget" value={-1000000} {...register("budget")} /> -$1.000.000
-                </div>
-                <div>
-                  <input type="radio" name="gbudget" value={-3000000} {...register("budget")} /> -$3.000.000
-                </div>
-                <div>
-                  <input type="radio" name="budget" value={-10000000} {...register("budget")} /> -$10.000.000
-                </div>
+                <select
+                  {...register("budget", { required: true })}>
+                    {
+                      budget.map(pres => (
+                        <option key={pres._id} value={pres.name}> {pres.viewValue} </option>
+                      ))
+                    }
+                </select>
+
+                {errors.budget?.type === "required" && <div className="input-error"> El campo es requerido </div>}
+
               </div>
+
+
+
               <div className="input-group">
                 <label className="input-label" htmlFor="obs">
                   Comentario
@@ -284,7 +300,7 @@ export default function Adminuser() {
 
               <div className="input-group">
                 <label className="input-label" htmlFor="image"> Imagen </label>
-                <input type="url" {...register("image", { required: true })} />
+                <input accept="image/*" type="file" {...register("image", { required: true })} />
 
                 {errors.image?.type === "required" && <div className="input-error">El campo es requerido</div>}
               </div>

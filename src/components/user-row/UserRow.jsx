@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPen } from "@fortawesome/free-solid-svg-icons"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import { formatDate } from "../../../utils/formatDate"
 
 const URL = import.meta.env.VITE_LOCAL_SERVER
 
@@ -23,7 +24,7 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
         {user.number}
       </td>
       <td className="car-birthdate">
-        {user.birthdate}
+        {formatDate(user.birthdate)}
       </td>
       <td className="car-price">
         {user.budget}

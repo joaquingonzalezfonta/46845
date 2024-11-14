@@ -24,7 +24,7 @@ export default function AdminRow({ producto, deleteProduct, handleEditProduct })
         {producto.category}
       </td>
       <td className="car-date">
-        {formatDate(producto.cretedAt)}
+        {formatDate(producto.createdAt)}
       </td>
       <td className="car-link">
         <button onClick={ () => handleEditProduct(producto) }> <FontAwesomeIcon icon={faPen} /> </button>

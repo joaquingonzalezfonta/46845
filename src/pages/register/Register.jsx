@@ -96,10 +96,10 @@ export default function Register() {
                             />
                         </div>
                         <div className="input-group">
-                            <label className="input-label" htmlFor="country">
+                            <label className="input-label" htmlFor="province">
                                 Seleccione su provincia
                             </label>
-                            <select name="pais" id="" required="">
+                            <select name="province" id="" required="">
                                 <option value="" />
                                 <option value="AR">Buenos Aires</option>
                                 <option value="BR">Entre Rios</option>
