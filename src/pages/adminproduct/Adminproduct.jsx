@@ -14,7 +14,7 @@ export default function Adminproduct() {
 
     const api = useApi()
     const [products, setProducts] = useState([])
-    const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm()
+    const { register, setValue, handleSubmit, formState: { errors, isValid } } = useForm()
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [ categories, setCategories ] = useState([])
     const {setTotalItems} = useState([])
@@ -24,18 +24,18 @@ export default function Adminproduct() {
 
     useEffect(() => {
         if (selectedProduct) {
-            // reset({
             setValue("name", selectedProduct.name),
                 setValue("price", selectedProduct.price),
                 setValue("description", selectedProduct.description),
                 // setValue("image", selectedProduct.image),
                 setValue("category", selectedProduct.category),
                 setValue("createdAt", selectedProduct.createdAt)
-            // })
-        } else {
-            reset()
         }
-    }, [selectedProduct, setValue, reset])
+    }, [selectedProduct, setValue,])
+
+    function resetForm() {
+        document.getElementById('productForm').reset();
+    }
 
     async function getCategories() {
         try {
@@ -60,9 +60,11 @@ export default function Adminproduct() {
 
             const { products, total } = response.data;
 
+            
+
             setProducts(products)
             setTotalItems(total)
-            
+
         } catch (error) {
             console.log(error)
         }
@@ -134,7 +136,18 @@ export default function Adminproduct() {
                 // si no tengo estado selectedProduct (null) significa que estoy creando un producto
                 const response = await axios.post(`${URL}/products`, formData)
                 console.log(response.data)
+
+                Swal.fire({
+                    title: "Producto creado",
+                    text: "El producto fue creado correctamente",
+                    icon: "success",
+                    timer: "1500"
+                })
+
+                
             }
+
+            resetForm();
 
             getProducts();
 
@@ -159,7 +172,7 @@ export default function Adminproduct() {
                 <div className="form-container-center">
                     <div className="form-subcontainer">
                         <h2 className='form-title'> ADMIN PRODUCT </h2>
-                        <form onSubmit={handleSubmit(onProductSubmit)}>
+                        <form onSubmit={handleSubmit(onProductSubmit)} id='productForm'>
                             <div className="input-group">
                                 <label htmlFor="name"> Nombre producto </label>
                                 <input type="text" id='name'
@@ -243,5 +256,6 @@ export default function Adminproduct() {
         </section>
     )
 }
+
 
 

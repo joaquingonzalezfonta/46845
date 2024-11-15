@@ -5,14 +5,21 @@
     justify-content: center;
 
     .pagination-button {
-        padding: .5rem 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        margin-top: 15px;
+        width: 65px;
+        height: 40px;
+        border-radius: 3px;
+        background-color: white;
+        border: 1px solid #287375;
+        color: #287375;
         cursor: pointer;
-        transition: all .3s;
+        transition: 0.3s;
+
 
         &:hover {
-            background-color: #f0f0f0;
+            background-color: white;
+            border: 1px solid #287375;
+            color: #287375;
         }
     }
 }

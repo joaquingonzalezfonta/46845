@@ -11,7 +11,7 @@
 
 .contenedor-info-ferrariSf90 {
     display: flex;
-    box-shadow: inset 1px 1px 150px #000;
+    box-shadow: inset 1px 1px 150px cadetblue;
     margin: 20px 0;
 
     .car-image {
@@ -23,56 +23,64 @@
             width: 100%;
         }
     }
-
+    
     .car-details {
         width: 50%;
+        border-left: 2px solid #000000;
     }
-
-    .product-price-details {
-        display: flex;
-        margin: 5px 50px;
-        justify-content: center;
-        box-shadow: inset 1px 1px 15px #000;
-        color: white;
-    }
-
+    
     .informacion-ferrarisf90 {
-
+        
         p {
             padding: 5px 20px 20px;
             text-align: center;
             color: white;
         }
-
+        
         .section-title {
             color: #000000;
         }
     }
-
+    
     .input-group {
         display: flex;
         flex-direction: column;
         padding: 0 50px;
-
+        
         button {
             padding: .5rem 1rem;
-            background-color: rgba(0, 0, 0, 0.452);
+            background-color: rgb(0, 0, 0);
             border-radius: 4px;
             color: white;
             cursor: pointer;
             transition: all .3s;
-            border: 1px solid white;
+            border: 1px solid #000000;
             margin-bottom: 10px;
-
+            
             &:hover {
-                background-color: #287375;
-                color: white;
+                background-color: #ffffff;
+                border: 1px solid #ffffff;
+                color: #000000;
+            }
+
+            .nav-link {
+                text-decoration: none;
             }
         }
+    }
+}
 
-        .btn-pantalla-principal {
-            margin-bottom: 20px;
-        }
+.product-price-details {
+    display: flex;
+    margin: 5px 0px;
+    justify-content: center;
+    box-shadow: inset 1px 1px 15px cadetblue;
+    color: white;
+
+    p {
+        text-align: center;
+        font-size: 22px;
+        margin: 2px;
     }
 }
 
@@ -96,6 +104,8 @@
 
         .car-details {
             width: 100%;
+            border-left: none;
+            border-top: 2px solid #000000;
         }
 
         .informacion-ferrarisf90 {
@@ -110,6 +120,10 @@
                 color: white;
             }
         }
+    }
+
+    .product-price-details {
+        margin: 2px 5px;
     }
 
 }

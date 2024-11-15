@@ -7,7 +7,6 @@ import '../../services/interceptor/interceptor';
 import useApi from "../../services/interceptor/interceptor";
 import { useUser } from "../../context/UserContext";
 
-
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Adminuser() {
@@ -40,6 +39,10 @@ export default function Adminuser() {
     }
 
   }, [selectedUser, setValue, reset])
+
+  function resetForm() {
+    document.getElementById('productForm').reset();
+}
 
   async function getProvinces() {
     try {
@@ -86,7 +89,7 @@ async function getBudget() {
       setUsers(response.data);
       // setTotalItems(total);
     } catch (error) {
-      console.error("Error en getUsers:", error);
+      console.log(error);
     }
   }
 
@@ -103,7 +106,11 @@ async function getBudget() {
       try {
         if (result.isConfirmed) {
 
-          const response = await axios.delete(`${URL}/users/${id}`);
+          const response = await axios.delete(`${URL}/users/${id}`, {
+            headers: {
+              Authorization: token
+            }
+          });
 
           console.log(response.data)
 
@@ -142,7 +149,11 @@ async function getBudget() {
 
         const { _id } = selectedUser;
 
-        const response = await axios.put(`${URL}/users/${_id}`, formData)
+        const response = await axios.put(`${URL}/users/${_id}`, {
+          headers: {
+            authorization: token
+          }
+        }, formData)
         console.log(response.data)
 
         Swal.fire({
@@ -156,10 +167,24 @@ async function getBudget() {
 
       } else {
 
-        const response = await axios.post(`${URL}/users`, formData)
+        const response = await axios.post(`${URL}/users`, {
+          headers: {
+            authorization: token
+          }
+        }, formData)
+        console.log(token)
         console.log(response.data)
 
+        Swal.fire({
+          title: "Usuario creado",
+          text: "El usuario fue creado correctamente",
+          icon: "success",
+          timer: "1500"
+      })
+
       }
+
+      resetForm();
 
       getUsers();
 

@@ -1,10 +1,11 @@
 
 import { useOrder } from '../../context/OrderContext';
 import { Link, NavLink } from "react-router-dom"
+import { formatDate } from '../../../utils/formatDate';
 
 const URL = import.meta.env.VITE_LOCAL_SERVER
 
-export default function ProductCard({ prod, category }) {
+export default function ProductCard({ prod }) {
 
   const { addProduct } = useOrder();
   
@@ -25,8 +26,8 @@ export default function ProductCard({ prod, category }) {
                 </div>
                 <div className="card-body">
                     <div className="product-info">
-                        <div className="product-category"> {category} </div>
-                        <div className="product-category"> {category} </div>
+                        <div className="product-category"> {prod.category} </div>
+                        <div className="product-category"> {formatDate(prod.createdAt)} </div>
                     </div>
                     <div className="product-name">
                         <Link to={`/product-detail/${prod._id}`}> {prod.name} </Link>

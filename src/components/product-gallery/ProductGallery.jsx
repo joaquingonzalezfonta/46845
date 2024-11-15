@@ -52,11 +52,19 @@ export default function ProductGallery() {
 
             <Pagination total={total} limit={limit} getFn={getProducts}/>
             
-            <select onChange={(evt) => setLimit(evt.target.value)}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+            <div className='selectPaginationContainer'>
+                <select className='selectPagination' onChange={(evt) => setLimit(evt.target.value)}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    </select>
+            </div>
+            
             
 
         </section>
