@@ -136,11 +136,13 @@ async function getBudget() {
 
       const formData = new FormData()
             formData.append("name", user.name);
-            formData.append("price", user.price);
-            formData.append("description", user.description);
-            formData.append("province", user.province);
-            formData.append("createdAt", user.createdAt);
+            formData.append("email", user.email);
+            formData.append("password", user.passsword);
+            formData.append("number", user.number);
+            formData.append("birthdate", user.birthdate);
             formData.append("budget", user.budget);
+            formData.append("province", user.province);
+            formData.append("comentary", user.comentary);
             if(user.image[0]) {
                 formData.append("image", user.image[0])
             }
@@ -149,11 +151,7 @@ async function getBudget() {
 
         const { _id } = selectedUser;
 
-        const response = await axios.put(`${URL}/users/${_id}`, {
-          headers: {
-            authorization: token
-          }
-        }, formData)
+        const response = await axios.put(`${URL}/users/${_id}`, formData, { headers: { authorization: token } })
         console.log(response.data)
 
         Swal.fire({
@@ -167,11 +165,7 @@ async function getBudget() {
 
       } else {
 
-        const response = await axios.post(`${URL}/users`, {
-          headers: {
-            authorization: token
-          }
-        }, formData)
+        const response = await axios.post(`${URL}/users`, formData, { headers: { authorization: token } })
         console.log(token)
         console.log(response.data)
 
