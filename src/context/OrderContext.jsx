@@ -46,7 +46,7 @@ export default function OrderProvider({ children }) {
 
 
         Swal.fire({
-            position: 'bottom-center',
+            position: 'center',
             icon:'success',
             padding:'.5rem',
             title:'Producto Agregado',
@@ -117,12 +117,14 @@ export default function OrderProvider({ children }) {
             })
 
             Swal.fire({
-                position: 'bottom-center',
+                position: 'center',
                 icon:'success',
                 padding:'.5rem',
                 title:'Orden creada',
                 width:'300px'
             })
+
+            console.log()
         } catch (error) {
             console.log(error)
             Swal.fire({

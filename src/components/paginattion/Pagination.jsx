@@ -11,7 +11,7 @@ export default function Pagination({ total, limit, getFn }) {
     }
 
     return (
-        <div className="pagination-container">
+        <div className="pagination-container" key={btnArray}>
             { btnArray }
         </div>
     )

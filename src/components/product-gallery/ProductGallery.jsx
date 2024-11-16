@@ -45,7 +45,7 @@ export default function ProductGallery() {
         <section>
             <div className="product-card-container">
             {
-                products.map(producto => (<ProductCard key={producto.id} prod={producto} />
+                products.map(producto => (<ProductCard key={producto._id} prod={producto} />
                 ))
             }
         </div>

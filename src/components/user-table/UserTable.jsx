@@ -40,7 +40,7 @@ export default function UserTable({ users, deleteUser, handleEditUser} ) {
             <tbody>
                 {
                     users.map(user => {
-                        return <UserRow key={user.id} user={user} deleteUser={deleteUser} handleEditUser={handleEditUser} />
+                        return <UserRow key={user._id} user={user} deleteUser={deleteUser} handleEditUser={handleEditUser} />
                     })
                 }
             </tbody>

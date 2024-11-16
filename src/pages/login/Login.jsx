@@ -12,48 +12,51 @@ export default function Login() {
   const { login } = useUser();
 
   return (
-    <body className="bodyLogin">
+    <>
+      <body className="bodyLogin">
 
-      <div className="wrapper">
-        <form className="formLogin" onSubmit={handleSubmit(login)}>
-          
-          <h1>Login</h1>
+        <div className="wrapper">
+          <form className="formLogin" onSubmit={handleSubmit(login)}>
 
-          <div className="input-box">
-            <input
-            type="email"
-            placeholder="Correo electrónico"
-            {...register("email", { required: "El email es requerido", minLength: { value: 4, message: "El email debe tener al menos 4 caracteres" } })}
-          />
-          <FontAwesomeIcon className="iconLogin" icon={faUser} />
-          </div>
-          
+            <h1>Login</h1>
 
-          <div className="input-box">
-            <input
-            type="password"
-            placeholder="Contraseña"
-            {...register("password", { required: "El password es requerido" })}
-          />
-            <FontAwesomeIcon className="iconLogin" icon={faLock} />
-          </div>
-
-          <div className="remember-forgot">
-            <a href="#"> Olvidaste tu contraseña? </a>
-          </div>
-
-          <button type="submit" className="button">
-            Ingresar
-          </button>
-
-          <div className="register-link">
-            <p> No tienes una cuenta? <a href="#"> Registrate </a> </p> 
-          </div>
-        </form>
-
-      </div>
+            <div className="input-box">
+              <input
+                type="email"
+                placeholder="Correo electrónico"
+                {...register("email", { required: "El email es requerido", minLength: { value: 4, message: "El email debe tener al menos 4 caracteres" } })}
+              />
+              <FontAwesomeIcon className="iconLogin" icon={faUser} />
+            </div>
 
 
-    </body>
+            <div className="input-box">
+              <input
+                type="password"
+                placeholder="Contraseña"
+                {...register("password", { required: "El password es requerido" })}
+              />
+              <FontAwesomeIcon className="iconLogin" icon={faLock} />
+            </div>
+
+            <div className="remember-forgot">
+              <a href="#"> Olvidaste tu contraseña? </a>
+            </div>
+
+            <button type="submit" className="button">
+              Ingresar
+            </button>
+
+            <div className="register-link">
+              <p> No tienes una cuenta? <a href="#"> Registrate </a> </p>
+            </div>
+          </form>
+
+        </div>
+
+
+      </body>
+    </>
+
   );
 }
