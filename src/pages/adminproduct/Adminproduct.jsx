@@ -144,10 +144,10 @@ export default function Adminproduct() {
                     timer: "1500"
                 })
 
+                resetForm();
                 
             }
 
-            resetForm();
 
             getProducts();
 

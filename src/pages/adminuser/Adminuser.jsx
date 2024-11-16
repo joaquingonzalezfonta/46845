@@ -13,15 +13,17 @@ export default function Adminuser() {
 
   const api = useApi()
   const [users, setUsers] = useState([]);
-  const { register, setValue, reset, handleSubmit, formState: { errors } } = useForm()
+  const { register, setValue, handleSubmit, formState: { errors } } = useForm()
   const [selectedUser, setSelectedUser] = useState(null);
   const [ provinces, setProvinces ] = useState([])
   const [ budget, setBudget ] = useState([])
+  const [ upLoadUser, setUpLoadUser ] = useState(1)
   // const { setTotalItems } = useState([])
   const { token } = useUser()
 
 
-  useEffect(() => { getUsers(); getProvinces(), getBudget() }, [])
+  useEffect(() => { getProvinces(), getBudget() }, [])
+  useEffect(() => { getUsers(); }, [upLoadUser])
 
   useEffect(() => {
     if (selectedUser) {
@@ -33,12 +35,10 @@ export default function Adminuser() {
       setValue("budget", selectedUser.budget)
       setValue("porvince", selectedUser.province)
       setValue("comentary", selectedUser.comentary)
-      // setValue("image", selectedUser.image)
-    } else {
-      reset()
+      setValue("image", selectedUser.image)
     }
 
-  }, [selectedUser, setValue, reset])
+  }, [selectedUser, setValue,])
 
   function resetForm() {
     document.getElementById('productForm').reset();
@@ -163,6 +163,8 @@ async function getBudget() {
 
         setSelectedUser(null)
 
+    setUpLoadUser(upLoadUser + 1)
+
       } else {
 
         const response = await axios.post(`${URL}/users`, formData, { headers: { authorization: token } })
@@ -175,12 +177,14 @@ async function getBudget() {
           icon: "success",
           timer: "1500"
       })
-
-      }
-
-      resetForm();
-
-      getUsers();
+      
+    }
+    
+    resetForm();
+    
+    getUsers();
+    
+    setUpLoadUser(upLoadUser + 1)
 
     } catch (error) {
       console.log(error)

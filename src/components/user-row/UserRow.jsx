@@ -18,9 +18,6 @@ export default function UserRow({ user, deleteUser, handleEditUser}) {
         {user.email}
       </td>
       <td className="car-price">
-        {user.password}
-      </td>
-      <td className="car-price">
         {user.number}
       </td>
       <td className="car-birthdate">
