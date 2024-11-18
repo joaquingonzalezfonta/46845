@@ -35,10 +35,6 @@ export default function ProductDetail() {
         }
     }
 
-    // if(!product) {
-    //     return <Spinner></Spinner>
-    // }
-
     return (
         <main className="main-details-container">
             <section className="product-section">
